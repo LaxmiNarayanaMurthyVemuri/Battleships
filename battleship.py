@@ -93,7 +93,12 @@ Parameters: 2D list of ints ; 2D list of ints
 Returns: bool
 '''
 def checkShip(grid, ship):
-    return
+    for i in range(len(ship)):
+        x=ship[i][0]
+        y=ship[i][1]
+        if grid[x][y]!=1:
+            return False
+    return True
 
 
 '''
@@ -102,7 +107,17 @@ Parameters: 2D list of ints ; int
 Returns: 2D list of ints
 '''
 def addShips(grid, numShips):
-    return
+    j=0
+    while j<numShips:
+        ship=createShip()
+        if checkShip(grid,ship)==True:
+            for i in range(len(ship)):
+                x=ship[i][0]
+                y=ship[i][1]
+                grid[x][y]=2
+            j+=1
+
+    return grid
 
 
 '''
@@ -282,6 +297,8 @@ def runSimulation(w, h):
 # This code runs the test cases to check your work
 if __name__ == "__main__":
     # test.testEmptyGrid()
-    test.testCreateShip()
+    # test.testCreateShip()
+    # test.testCheckShip()
+    test.testAddShips()
     ## Finally, run the simulation to test it manually ##
     # runSimulation(500, 500)
