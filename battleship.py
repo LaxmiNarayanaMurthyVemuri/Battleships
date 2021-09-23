@@ -70,6 +70,7 @@ def emptyGrid(rows, cols):
             d.append(EMPTY_UNCLICKED)
     return grid
 
+
 '''
 createShip()
 Parameters: no parameters
