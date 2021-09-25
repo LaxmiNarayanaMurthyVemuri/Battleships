@@ -29,21 +29,19 @@ def makeModel(data):
     data["number of cols"]=10
     data["board size"]=500
     data["number of ships"]=5
-    x=list(data.values())
-    data["computer"]=list(x)
-    data["user"]=list(x)
     data["cellsize"]=data["board size"]/data["number of rows"]
-    y=emptyGrid(data["number of rows"],data["number of cols"])
-    return addShips(y,data["number of ships"])
-
+    data["computer"]=emptyGrid(data["number of rows"],data["number of cols"])
+    data["user"]=emptyGrid(data["number of rows"],data["number of cols"])
+    addShips(data["computer"],data["number of ships"])
+    
 '''
 makeView(data, userCanvas, compCanvas)
 Parameters: dict mapping strs to values ; Tkinter canvas ; Tkinter canvas
 Returns: None
 '''
 def makeView(data, userCanvas, compCanvas):
-    drawGrid(data,userCanvas,makeModel(data),True)
-    drawGrid(data,compCanvas,makeModel(data),True)
+    drawGrid(data,userCanvas,data["user"],True)
+    drawGrid(data,compCanvas,data["computer"],True)
 
 
 '''
@@ -317,6 +315,6 @@ if __name__ == "__main__":
     # test.testCreateShip()
     # test.testCheckShip()
     # test.testAddShips()
-    # test.testMakeModel()
+    test.testMakeModel()
     ## Finally, run the simulation to test it manually ##
     runSimulation(500, 500)
