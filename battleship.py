@@ -1,6 +1,6 @@
 """
 Battleship Project
-Name:
+Name: G.V.S. Sai Charan
 Roll No:
 """
 
@@ -62,7 +62,14 @@ Parameters: int ; int
 Returns: 2D list of ints
 '''
 def emptyGrid(rows, cols):
-    return
+    grid=[]
+    for i in range(rows):
+        col = []
+        for j in range(cols):
+            col.append(EMPTY_UNCLICKED)
+        grid.append(col)
+    return (grid)
+
 
 
 '''
@@ -270,4 +277,5 @@ def runSimulation(w, h):
 if __name__ == "__main__":
 
     ## Finally, run the simulation to test it manually ##
-    runSimulation(500, 500)
+   # runSimulation(500, 500)
+   test.testEmptyGrid()
