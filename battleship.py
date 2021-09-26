@@ -95,9 +95,9 @@ def checkShip(grid, ship):
     for every in ship:
         row=every[0]
         col=every[1]
-        if grid[row][col]==EMPTY_UNCLICKED:
-            return True
-    return False
+        if grid[row][col]!=EMPTY_UNCLICKED:
+            return False
+    return True
 # checkShip Function
 '''
 addShips(grid, numShips)
@@ -287,4 +287,4 @@ if __name__ == "__main__":
 
     ## Finally, run the simulation to test it manually ##
     #runSimulation(500, 500)
-    test.testCreateShip() 
+    test.testCheckShip() 
