@@ -66,7 +66,7 @@ def emptyGrid(rows, cols):
     for i in range(rows):
         s= []
         for j in range(cols):
-            s.append(1)
+            s.append(EMPTY_UNCLICKED)
         x.append(s)
     return x
 
@@ -276,6 +276,6 @@ def runSimulation(w, h):
 
 # This code runs the test cases to check your work
 if __name__ == "__main__":
-    test.testCreateShip()
+    test.testEmptyGrid()
     ## Finally, run the simulation to test it manually ##
     #runSimulation(500, 500)
