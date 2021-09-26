@@ -78,13 +78,8 @@ Parameters: no parameters
 Returns: 2D list of ints
 '''
 def createShip():
-    row = random.randint(1,8)
-    col =random.randint(1,8)
-    horizantal=random.randint(0,1)
-    if not horizantal:
-        return ([[row-1,col],[row,col],[row+1,col]])
-    else:
-        return ([[row,col-1],[row,col],[row,col+1]])
+    
+        return 
 
 
 '''
