@@ -68,8 +68,7 @@ def emptyGrid(rows, cols):
         for j in range(cols):
             col.append(1)
         Grid.append(col)
-    print(Grid)
-    return Grid
+    
 
 
 '''
@@ -85,8 +84,7 @@ def createShip():
         return[[row,col-1],[row,col],[row,col+1]]
     else:
         return[[row-1,col],[row,col],[row+1,col]]
-    print(createShip())
-    return createShip()
+    
 
 
 '''
@@ -95,6 +93,7 @@ Parameters: 2D list of ints ; 2D list of ints
 Returns: bool
 '''
 def checkShip(grid, ship):
+    
     return
 
 
