@@ -62,13 +62,13 @@ Parameters: int ; int
 Returns: 2D list of ints
 '''
 def emptyGrid(rows, cols):
-    x = []
+    grid = []
     for i in range(rows):
         s= []
         for j in range(cols):
             s.append(EMPTY_UNCLICKED)
-        x.append(s)
-    return x
+        grid.append(s)
+    return grid
 
 
 
@@ -78,8 +78,15 @@ Parameters: no parameters
 Returns: 2D list of ints
 '''
 def createShip():
-    
-        return 
+    row = random.randint(1,8)
+    col =random.randint(1,8)
+    center =random.randint(0,1)
+    ship =[[],[],[]]
+    if center==0:
+        ship =([[row-1,col],[row,col],[row+1,col]])
+    else:
+        ship =([[row,col-1],[row,col],[row,col+1]])
+    return ship
 
 
 '''
@@ -88,7 +95,8 @@ Parameters: 2D list of ints ; 2D list of ints
 Returns: bool
 '''
 def checkShip(grid, ship):
-    return
+   return
+   
 
 
 '''
@@ -97,9 +105,10 @@ Parameters: 2D list of ints ; int
 Returns: 2D list of ints
 '''
 def addShips(grid, numShips):
-    return
+    
+    return 
 
-
+ 
 '''
 drawGrid(data, canvas, grid, showShips)
 Parameters: dict mapping strs to values ; Tkinter canvas ; 2D list of ints ; bool
