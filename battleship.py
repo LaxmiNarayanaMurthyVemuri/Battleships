@@ -152,7 +152,11 @@ Parameters: 2D list of ints
 Returns: bool
 '''
 def isVertical(ship):
-    return
+    if ship[0][1]==ship[1][1]==ship[2][1]:
+        if (ship[0][0]+ship[1][0]+ship[2][0])%3==0:
+           return True
+    
+    return False
 
 
 '''
@@ -161,7 +165,11 @@ Parameters: 2D list of ints
 Returns: bool
 '''
 def isHorizontal(ship):
-    return
+    if ship[0][0]==ship[1][0]==ship[2][0]:
+        if (ship[0][1]+ship[1][1]+ship[2][1])%3==0:
+           return True
+    
+    return False
 
 
 '''
@@ -315,6 +323,8 @@ if __name__ == "__main__":
     # test.testCreateShip()
     # test.testCheckShip()
     # test.testAddShips()
-    test.testMakeModel()
+    # test.testMakeModel()
+    test.testIsVertical()
+    test.testIsHorizontal()
     ## Finally, run the simulation to test it manually ##
     runSimulation(500, 500)
