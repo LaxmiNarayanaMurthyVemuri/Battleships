@@ -109,8 +109,13 @@ Parameters: 2D list of ints ; int
 Returns: 2D list of ints
 '''
 def addShips(grid, numShips):
-    
-    return 
+    for i in range(numShips+1):
+        newship = createShip()
+        if checkShip(grid,newship):
+          for j in newship:
+              if grid[j[0]][j[1]]==1:
+                  grid[j[0]][j[1]]=2
+    return grid
 
  
 '''
