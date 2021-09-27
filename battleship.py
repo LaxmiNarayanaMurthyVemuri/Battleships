@@ -68,7 +68,7 @@ def emptyGrid(rows, cols):
         lst1 = []
         for j in range(cols):
             lst1.append(EMPTY_UNCLICKED)
-        lst.append(col)
+        lst.append(lst1)
     return lst
     
 
@@ -82,7 +82,7 @@ def createShip():
     row = random.randint(1,8)
     col = random.randint(1,8)
     step = random.randint(0,1)
-    if  == 0: #0 is vertical
+    if step == 0: #0 is vertical
         for i in range(row-1,row+2):
             ship.append([i,col])
     else:
@@ -107,14 +107,14 @@ Parameters: 2D list of ints ; int
 Returns: 2D list of ints
 '''
 def addShips(grid, numShips):
-    board=grid
-    count=0
+    board = grid
+    count = 0
     while count < numShips:
-        ship=createShip()
+        ship = createShip()
         if checkShip(board, ship) == True:
             for i in range(len(ship)):
                 board[ship[i][0]][ship[i][1]] = SHIP_UNCLICKED
-            count +=1
+            count += 1
     return board
 
 
