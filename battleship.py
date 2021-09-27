@@ -33,7 +33,7 @@ def makeModel(data):
     data["computer"]=emptyGrid(data["number of rows"],data["number of cols"])
     data["user"]=emptyGrid(data["number of rows"],data["number of cols"])
     addShips(data["computer"],data["number of ships"])
-    
+
 '''
 makeView(data, userCanvas, compCanvas)
 Parameters: dict mapping strs to values ; Tkinter canvas ; Tkinter canvas
@@ -59,7 +59,7 @@ Parameters: dict mapping strs to values ; mouse event object ; 2D list of ints
 Returns: None
 '''
 def mousePressed(data, event, board):
-    pass
+    pass 
 
 #### WEEK 1 ####
 
@@ -103,7 +103,7 @@ def checkShip(grid, ship):
     for i in range(len(ship)):
         x=ship[i][0]
         y=ship[i][1]
-        if grid[x][y]!=1:
+        if grid[x][y]!=EMPTY_UNCLICKED:
             return False
     return True
 
@@ -121,7 +121,7 @@ def addShips(grid, numShips):
             for i in range(len(ship)):
                 x=ship[i][0]
                 y=ship[i][1]
-                grid[x][y]=2
+                grid[x][y]=SHIP_UNCLICKED
             j+=1
 
     return grid
@@ -178,7 +178,9 @@ Parameters: dict mapping strs to values ; mouse event object
 Returns: list of ints
 '''
 def getClickedCell(data, event):
-    return
+    row=int((event.y)/(data["board size"]/data["number of rows"]))
+    col=int((event.x)/(data["board size"]/data["number of rows"]))
+    return [row,col]
 
 
 '''
@@ -324,7 +326,8 @@ if __name__ == "__main__":
     # test.testCheckShip()
     # test.testAddShips()
     # test.testMakeModel()
-    test.testIsVertical()
-    test.testIsHorizontal()
+    # test.testIsVertical()
+    # test.testIsHorizontal()
+    test.testGetClickedCell()
     ## Finally, run the simulation to test it manually ##
     runSimulation(500, 500)
