@@ -113,7 +113,7 @@ def addShips(grid, numShips):
         newship = createShip()
         if checkShip(grid,newship):
           for j in newship:
-              if grid[j[0]][j[1]]==1:
+              if grid[j[0]][j[1]]==EMPTY_UNCLICKED:
                   grid[j[0]][j[1]]=2
     return grid
 
