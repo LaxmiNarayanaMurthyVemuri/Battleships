@@ -34,7 +34,7 @@ def makeModel(data):
     data["computer Board"] = emptyGrid(data["Number of rows"],data["Number of cols"]) 
     data["user Board"] = emptyGrid(data["Number of rows"],data["Number of cols"]) 
     data["Number of rows"] = addShips(data["computer Board"],data["num Of Ships"]) 
-    return
+    return data
 
 '''
 makeView(data, userCanvas, compCanvas)
