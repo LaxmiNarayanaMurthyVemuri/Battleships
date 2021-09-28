@@ -28,12 +28,11 @@ def makeModel(data):
     data["board size"]= 500
     data["rows"]=10
     data["cols"]=10
-    data["cellsize"]=5
+    data["cellsize"]= d
     data["numships"]=5
-    data["usergrid"]= emptyGrid(10,10)
-    data["computergrid"]=emptyGrid(10,10)
+    data["usergrid"]= emptyGrid(data["rows"],data["cols"])
+    data["computergrid"]=addShips(emptyGrid(data["rows"],data["cols"]),data["numships"])
     
-
 
 '''
 makeView(data, userCanvas, compCanvas)
@@ -131,6 +130,8 @@ Parameters: dict mapping strs to values ; Tkinter canvas ; 2D list of ints ; boo
 Returns: None
 '''
 def drawGrid(data, canvas, grid, showShips):
+    canvas.create_rectangle(0, 100, 100, 0, fill="blue")
+    canvas.create_rectangle(0, 100, 100, 0, fill="blue")
     return
 
 
