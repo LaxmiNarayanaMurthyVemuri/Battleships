@@ -4,6 +4,7 @@ Name:
 Roll No:
 """
 
+from typing import ValuesView
 import battleship_tests as test
 
 project = "Battleship" # don't edit this
@@ -25,14 +26,13 @@ Parameters: dict mapping strs to values
 Returns: None
 '''
 def makeModel(data):
-    data["board size"]= 500
+    data["boardsize"]= 500
     data["rows"]=10
     data["cols"]=10
-    data["cellsize"]=5
+    data["cellsize"]= data["boardsize"]/data["rows"]
     data["numships"]=5
-    data["usergrid"]= emptyGrid(10,10)
-    data["computergrid"]=emptyGrid(10,10)
-    
+    data["usergrid"]= emptyGrid(data["rows"],data["cols"])  #test.testGrid()
+    data["computergrid"]= addShips(emptyGrid(data["rows"],data["cols"]),data["numships"])
 
 
 '''
@@ -41,6 +41,8 @@ Parameters: dict mapping strs to values ; Tkinter canvas ; Tkinter canvas
 Returns: None
 '''
 def makeView(data, userCanvas, compCanvas):
+    userCanvas= drawGrid(data, userCanvas, data["usergrid"], True)
+    compCanvas = drawGrid(data, compCanvas, data["computergrid"], True)
     return
 
 
@@ -131,7 +133,16 @@ Parameters: dict mapping strs to values ; Tkinter canvas ; 2D list of ints ; boo
 Returns: None
 '''
 def drawGrid(data, canvas, grid, showShips):
-    return
+    for row in range(data["rows"]):
+     for col in range(data["cols"]):
+    #   canvas.create_rectangle(data["cellsize"]*row, data["cellsize"]*col, data["cellsize"]*(row+1), data["cellsize"]*(col+1), fill= color)  
+      if grid[row][col]== SHIP_UNCLICKED:
+        canvas.create_rectangle(data["cellsize"]*row, data["cellsize"]*col, data["cellsize"]*(row+1), data["cellsize"]*(col+1), fill="yellow")
+      else:
+        canvas.create_rectangle(data["cellsize"]*row, data["cellsize"]*col, data["cellsize"]*(row+1), data["cellsize"]*(col+1), fill= "blue")
+    # if cell == SHIP_UNCLICKED:
+    return #  p
+    # return
 
 
 ### WEEK 2 ###
@@ -302,6 +313,6 @@ def runSimulation(w, h):
 # This code runs the test cases to check your work
 if __name__ == "__main__":
     # test.testCheckShip()
-    test.testMakeModel()
+    # test.testMakeModel()
     ## Finally, run the simulation to test it manually ##
-    #runSimulation(500, 500)
+    runSimulation(500, 500)
