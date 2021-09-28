@@ -67,8 +67,8 @@ def emptyGrid(rows, cols):
         list = []  
         for j in range(cols):
             list.append(EMPTY_UNCLICKED)
-        list.append(grid) 
-    return grid 
+        grid.append(list)
+    return grid
 
 '''
 createShip()
