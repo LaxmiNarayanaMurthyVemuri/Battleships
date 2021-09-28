@@ -62,13 +62,13 @@ Parameters: int ; int
 Returns: 2D list of ints
 '''
 def emptyGrid(rows, cols):
-    list1 = []
+    grid = []
     for i in range(rows):
-        list2 = []  
+        list = []  
         for j in range(cols):
-            list2.append(EMPTY_UNCLICKED)
-        list1.append(list2) 
-    return list1 
+            list.append(EMPTY_UNCLICKED)
+        grid.append(list) 
+    return grid 
 
 '''
 createShip()
@@ -92,12 +92,16 @@ Parameters: 2D list of ints ; 2D list of ints
 Returns: bool
 '''
 def checkShip(grid, ship):
+    count = 0
     for every in ship:
         row=every[0]
         col=every[1]
         if grid[row][col]!=EMPTY_UNCLICKED:
-            return False
-    return True
+            count+=1
+            if count==len(ship):
+                return False
+        else:
+            return True
 # checkShip Function
 '''
 addShips(grid, numShips)
