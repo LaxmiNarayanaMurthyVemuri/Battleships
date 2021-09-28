@@ -81,7 +81,6 @@ def createShip():
     row = random.randint(1,8)
     col =random.randint(1,8)
     center =random.randint(0,1)
-    ship =[[],[],[]]
     if center==0:
         ship =([[row-1,col],[row,col],[row+1,col]])
     else:
