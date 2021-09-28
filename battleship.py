@@ -25,13 +25,13 @@ Parameters: dict mapping strs to values
 Returns: None
 '''
 def makeModel(data):
-    data["board size"]= 500
+    data["boardsize"]= 500
     data["rows"]=10
     data["cols"]=10
-    data["cellsize"]= d
+    data["cellsize"]= data["boardsize"]/data["rows"]
     data["numships"]=5
     data["usergrid"]= emptyGrid(data["rows"],data["cols"])
-    data["computergrid"]=addShips(emptyGrid(data["rows"],data["cols"]),data["numships"])
+    data["computergrid"]= addShips(emptyGrid(data["rows"],data["cols"]),data["numships"])
     
 
 '''
