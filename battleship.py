@@ -78,8 +78,14 @@ Parameters: no parameters
 Returns: 2D list of ints
 '''
 def createShip():
-    
-        return 
+    row = random.randint(1,8)
+    col =random.randint(1,8)
+    center =random.randint(0,1)
+    if center==0:
+        ship =([[row-1,col],[row,col],[row+1,col]])
+    else:
+        ship =([[row,col-1],[row,col],[row,col+1]])
+    return ship
 
 
 '''
@@ -88,7 +94,8 @@ Parameters: 2D list of ints ; 2D list of ints
 Returns: bool
 '''
 def checkShip(grid, ship):
-    return
+   return
+   
 
 
 '''
@@ -97,9 +104,10 @@ Parameters: 2D list of ints ; int
 Returns: 2D list of ints
 '''
 def addShips(grid, numShips):
-    return
+    
+    return 
 
-
+ 
 '''
 drawGrid(data, canvas, grid, showShips)
 Parameters: dict mapping strs to values ; Tkinter canvas ; 2D list of ints ; bool
@@ -276,6 +284,6 @@ def runSimulation(w, h):
 
 # This code runs the test cases to check your work
 if __name__ == "__main__":
-    test.testEmptyGrid()
+    test.testCreateShip()
     ## Finally, run the simulation to test it manually ##
     #runSimulation(500, 500)
