@@ -130,8 +130,6 @@ Parameters: dict mapping strs to values ; Tkinter canvas ; 2D list of ints ; boo
 Returns: None
 '''
 def drawGrid(data, canvas, grid, showShips):
-    canvas.create_rectangle(0, 100, 100, 0, fill="blue")
-    canvas.create_rectangle(0, 100, 100, 0, fill="blue")
     return
 
 
