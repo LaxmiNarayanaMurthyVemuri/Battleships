@@ -81,7 +81,6 @@ def createShip():
     row = random.randint(1,8)
     col =random.randint(1,8)
     center =random.randint(0,1)
-    ship =[[],[],[]]
     if center==0:
         ship =([[row-1,col],[row,col],[row+1,col]])
     else:
@@ -289,6 +288,9 @@ def runSimulation(w, h):
 
 # This code runs the test cases to check your work
 if __name__ == "__main__":
+
     test.testCheckShip()
+
+
     ## Finally, run the simulation to test it manually ##
     #runSimulation(500, 500)
