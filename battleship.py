@@ -97,11 +97,8 @@ def checkShip(grid, ship):
         row=every[0]
         col=every[1]
         if grid[row][col]!=EMPTY_UNCLICKED:
-            count+=1
-            if count == len(ship):
-                return False
-        else:
-            return True
+            return False
+    return True 
 # checkShip Function
 '''
 addShips(grid, numShips)
