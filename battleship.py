@@ -67,8 +67,8 @@ def emptyGrid(rows, cols):
         list = []  
         for j in range(cols):
             list.append(EMPTY_UNCLICKED)
-        grid.append(list)
-    return grid
+        grid.append(list) 
+    return grid 
 
 '''
 createShip()
@@ -84,18 +84,22 @@ def createShip():
        ship1 = [[row,col-1],[row,col],[row,col+1]] 
     else:
         ship1 = [[row-1,col],[row,col],[row+1,col]] 
-    return ship1
-#Its a createShip function.
+    return ship1 
+#Its a createShip function. 
 '''
 checkShip(grid, ship)
 Parameters: 2D list of ints ; 2D list of ints
 Returns: bool
 '''
 def checkShip(grid, ship):
-    
-    return
-
-
+    count = 0
+    for every in ship:
+        row=every[0]
+        col=every[1]
+        if grid[row][col]!=EMPTY_UNCLICKED:
+            return False
+    return True 
+# checkShip Function
 '''
 addShips(grid, numShips)
 Parameters: 2D list of ints ; int
@@ -284,4 +288,4 @@ if __name__ == "__main__":
 
     ## Finally, run the simulation to test it manually ##
     #runSimulation(500, 500)
-    test.testCreateShip() 
+    test.testCheckShip() 
