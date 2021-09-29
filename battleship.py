@@ -4,6 +4,7 @@ Name:
 Roll No:
 """
 
+from typing import ValuesView
 import battleship_tests as test
 
 project = "Battleship" # don't edit this
@@ -30,9 +31,10 @@ def makeModel(data):
     data["cols"]=10
     data["cellsize"]= data["boardsize"]/data["rows"]
     data["numships"]=5
-    data["usergrid"]= emptyGrid(data["rows"],data["cols"])
+
+    data["usergrid"]= emptyGrid(data["rows"],data["cols"])  #test.testGrid()
     data["computergrid"]= addShips(emptyGrid(data["rows"],data["cols"]),data["numships"])
-    
+
 
 '''
 makeView(data, userCanvas, compCanvas)
@@ -130,7 +132,14 @@ Parameters: dict mapping strs to values ; Tkinter canvas ; 2D list of ints ; boo
 Returns: None
 '''
 def drawGrid(data, canvas, grid, showShips):
-    return
+    for row in range(data["rows"]):
+     for col in range(data["cols"]): 
+      if grid[row][col]== SHIP_UNCLICKED:
+        canvas.create_rectangle(data["cellsize"]*row, data["cellsize"]*col, data["cellsize"]*(row+1), data["cellsize"]*(col+1), fill="yellow")
+      else:
+        canvas.create_rectangle(data["cellsize"]*row, data["cellsize"]*col, data["cellsize"]*(row+1), data["cellsize"]*(col+1), fill= "blue")
+    return 
+ 
 
 
 ### WEEK 2 ###
@@ -303,6 +312,9 @@ if __name__ == "__main__":
 
     # test.testCheckShip()
 
+    # test.testMakeModel()
+
+
     test.testMakeModel()
 
     test.testAddShips()
@@ -311,5 +323,6 @@ if __name__ == "__main__":
     test.testCheckShip()
 
 
+
     ## Finally, run the simulation to test it manually ##
-    #runSimulation(500, 500)
+    runSimulation(500, 500)
