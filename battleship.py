@@ -167,12 +167,7 @@ Parameters: 2D list of ints
 Returns: bool
 '''
 def isHorizontal(ship):
-    ship = createShip(ship)
-    if ship == 0:
-      return True
-    else: 
-      return False
-   
+    return
 
 
 '''
