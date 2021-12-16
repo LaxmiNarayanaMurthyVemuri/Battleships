@@ -107,7 +107,15 @@ Parameters: 2D list of ints ; int
 Returns: 2D list of ints
 '''
 def addShips(grid, numShips):
-    return
+    count=0
+    while count<numShips:
+        new=createShip()
+        lst=checkShip(grid,new)
+        if lst==True:
+            for y in new:
+                grid[y[0]][y[1]]=2
+            count+=1
+    return grid
 
 
 '''
@@ -286,6 +294,7 @@ def runSimulation(w, h):
 
 # This code runs the test cases to check your work
 if __name__ == "__main__":
+    test.testAddShips()
 
     ## Finally, run the simulation to test it manually ##
     # runSimulation(500, 500)
