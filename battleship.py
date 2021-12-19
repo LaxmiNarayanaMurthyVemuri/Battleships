@@ -25,7 +25,17 @@ Parameters: dict mapping strs to values
 Returns: None
 '''
 def makeModel(data):
-    return
+    data["rows"]=10
+    data["cols"]=10
+    data["boardsize"]=500
+    data["cellsize"]=5
+    data["userboard"]=emptyGrid(data["rows"],data["cols"])
+    data["computerboard"]=emptyGrid(data["rows"],data["cols"])
+    addShips(data["computerboard"],4)
+    data["numberofShips"]=5
+    data["userboard"]=createShip()
+    data["computerboard"]=createShip()
+    return data
 
 
 '''
@@ -293,7 +303,7 @@ def runSimulation(w, h):
 
 # This code runs the test cases to check your work
 if __name__ == "__main__":
-    test.testAddShips()
+    test.testMakeModel()
 
     ## Finally, run the simulation to test it manually ##
     # runSimulation(500, 500)
