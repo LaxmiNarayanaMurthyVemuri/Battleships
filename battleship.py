@@ -28,10 +28,10 @@ def makeModel(data):
     data["rows"]=10
     data["cols"]=10
     data["boardsize"]=500
-    data["cellsize"]=5
+    data["cellsize"]=50
     data["userboard"]=test.testGrid()
     data["computerboard"]=emptyGrid(data["rows"],data["cols"])
-    addShips(data["computerboard"],4)
+    data["computerboard"]=addShips(data["computerboard"],5)
     data["numberofShips"]=5
 
     return data
@@ -43,6 +43,8 @@ Parameters: dict mapping strs to values ; Tkinter canvas ; Tkinter canvas
 Returns: None
 '''
 def makeView(data, userCanvas, compCanvas):
+    drawGrid(data,userCanvas,data["userboard"],True)
+    drawGrid(data,compCanvas,data["computerboard"],True)
     return
 
 
@@ -133,9 +135,9 @@ Returns: None
 '''
 def drawGrid(data, canvas, grid, showShips):
     for row in range(data["rows"]):
-         for cols in range(data["columns"]):
+         for cols in range(data["cols"]):
              if grid[row][cols]==SHIP_UNCLICKED:
-                 if showShips == True:
+                 if showShips: 
                      canvas.create_rectangle(cols*data["cellsize"],row*data["cellsize"],data["cellsize"]+cols*data["cellsize"], row*data["cellsize"]+data["cellsize"], fill="yellow")
                  else:
                      canvas.create_rectangle(cols*data["cellsize"],row*data["cellsize"],data["cellsize"]+cols*data["cellsize"], row*data["cellsize"]+data["cellsize"], fill="blue")
@@ -152,7 +154,12 @@ Parameters: 2D list of ints
 Returns: bool
 '''
 def isVertical(ship):
-    return
+    row=0
+    if ship[row][1]==ship[row+1][1]==ship[row+2][1]:
+        ship.sort()
+        if ship[row+1][0]-ship[row][0]==1 and ship[row+2][0]-ship[row+1][0]==1:
+            return True
+    return False
 
 
 '''
@@ -161,6 +168,8 @@ Parameters: 2D list of ints
 Returns: bool
 '''
 def isHorizontal(ship):
+    #col=0
+    #if ship[1][col]
     return
 
 
@@ -314,4 +323,4 @@ if __name__ == "__main__":
     test.testGrid()
 
     ## Finally, run the simulation to test it manually ##
-    # runSimulation(500, 500)
+    runSimulation(500, 500)
