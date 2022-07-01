@@ -1,7 +1,7 @@
 """
 Battleship Project
-Name:
-Roll No:
+Name: Ameen N.A
+Roll No: 2021-IIITH-C2-002
 """
 
 import battleship_tests as test
@@ -25,6 +25,15 @@ Parameters: dict mapping strs to values
 Returns: None
 '''
 def makeModel(data):
+    data["rows"]=10
+    data["cols"]=10
+    data["boardSize"]=500
+    data["cellSize"]=data["boardSize"]//(data["rows"])
+    data["numOfShips"]=5
+    data["computer"]=emptyGrid(data["rows"],data["cols"])
+    data["user"]=emptyGrid(data["rows"],data["cols"])
+    data["computer"]=addShips(data["computer"],data["numOfShips"])
+    data["user"]=addShips(data["user"],data["numOfShips"])
     return
 
 
@@ -62,7 +71,13 @@ Parameters: int ; int
 Returns: 2D list of ints
 '''
 def emptyGrid(rows, cols):
-    return
+    outer=[]
+    for i in range(rows):
+        inner=[]
+        for j in range(cols):
+            inner.append(EMPTY_UNCLICKED)
+        outer.append(inner)
+    return outer
 
 
 '''
@@ -71,7 +86,16 @@ Parameters: no parameters
 Returns: 2D list of ints
 '''
 def createShip():
-    return
+    randRow=random.randint(1,8)
+    randCol=random.randint(1,8)
+    VERTICAL=0
+    HORIZONTAL=1
+    align=random.randint(0,1)
+    if(align == HORIZONTAL):
+        ship=[[randRow,randCol-1],[randRow,randCol],[randRow,randCol+1]]
+    else:
+        ship=[[randRow-1,randCol],[randRow,randCol],[randRow+1,randCol]]
+    return ship
 
 
 '''
@@ -80,7 +104,10 @@ Parameters: 2D list of ints ; 2D list of ints
 Returns: bool
 '''
 def checkShip(grid, ship):
-    return
+    for ships in ship:
+        if(grid[ships[0]][ships[1]] != EMPTY_UNCLICKED):
+                return False
+    return True
 
 
 '''
@@ -89,7 +116,14 @@ Parameters: 2D list of ints ; int
 Returns: 2D list of ints
 '''
 def addShips(grid, numShips):
-    return
+    while(numShips>0):
+        ship=createShip()
+        status=checkShip(grid,ship)
+        if(status):
+            for s in ship:
+                grid[s[0]][s[1]]=SHIP_UNCLICKED
+        numShips-=1
+    return grid
 
 
 '''
@@ -268,6 +302,11 @@ def runSimulation(w, h):
 
 # This code runs the test cases to check your work
 if __name__ == "__main__":
-
+    # test.testEmptyGrid()
+    # test.testCreateShip()
+    # test.testCheckShip()
+    # test.testAddShips()
+    test.testMakeModel()
+    #test.week1Tests()
     ## Finally, run the simulation to test it manually ##
-    # runSimulation(500, 500)
+    #runSimulation(500, 500)
