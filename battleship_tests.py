@@ -41,6 +41,7 @@ def testEmptyGrid():
 def testCreateShip():
     print("Testing createShip()...", end="")
     ship = createShip()
+    #print(ship)
     assert(type(ship) == list)
     assert(len(ship) == 3)
     ship.sort()
