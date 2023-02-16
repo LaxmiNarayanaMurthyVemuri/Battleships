@@ -22,7 +22,7 @@ SHIP_CLICKED = 4
 '''
 makeModel(data)
 Parameters: dict mapping strs to values
-Returns: None
+Returns: Nonepi
 '''
 def makeModel(data):
     return
