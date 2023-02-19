@@ -1,7 +1,7 @@
 """
 Battleship Project
-Name:
-Roll No:
+Name: G Tarun Kumar
+Roll No: 20211A0815
 """
 
 import battleship_tests as test
@@ -267,7 +267,7 @@ def runSimulation(w, h):
 ### RUN CODE ###
 
 # This code runs the test cases to check your work
-if __name__ == "__main__":
+#if __name__ == "__main__":
 
     ## Finally, run the simulation to test it manually ##
     # runSimulation(500, 500)
